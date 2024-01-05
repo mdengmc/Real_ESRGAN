@@ -93,7 +93,8 @@ def main(img_input, save_output=True):
         help="gpu device to use (default=None) can be 0,1,2 for multi-gpu",
     )
 
-    args = parser.parse_args()
+    # max: should ignore command line arguments defined in our own main.py
+    args, unknown = parser.parse_known_args()
 
     # determine models according to model names
     args.model_name = args.model_name.split(".")[0]
